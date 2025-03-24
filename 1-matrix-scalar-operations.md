@@ -112,3 +112,134 @@ cA = [c × aᵢⱼ]
 4. 1A = A
 5. 0A = 0 (מטריצת אפסים)
 6. (-1)A = -A
+
+ # תכונות של כפל סקלרי במטריצות / וקטורים
+
+כאשר \( A \) ו-\( B \) הן מטריצות (או וקטורים), ו-\( c, d \) הם סקלרים (מספרים), מתקיימות התכונות הבאות:
+
+---
+
+## 1. פילוג סקלר על סכום מטריצות
+
+**נוסחה:**  
+\[
+c(A + B) = cA + cB
+\]
+
+**דוגמה:**  
+אם  
+\[
+A = \begin{bmatrix} 1 & 2 \end{bmatrix}, \quad B = \begin{bmatrix} 3 & 4 \end{bmatrix}, \quad c = 2
+\]  
+אז:  
+\[
+c(A + B) = 2 \cdot \begin{bmatrix} 4 & 6 \end{bmatrix} = \begin{bmatrix} 8 & 12 \end{bmatrix}
+\]  
+ולעומת זאת:  
+\[
+cA + cB = 2 \cdot \begin{bmatrix} 1 & 2 \end{bmatrix} + 2 \cdot \begin{bmatrix} 3 & 4 \end{bmatrix} = \begin{bmatrix} 2 & 4 \end{bmatrix} + \begin{bmatrix} 6 & 8 \end{bmatrix} = \begin{bmatrix} 8 & 12 \end{bmatrix}
+\]
+
+---
+
+## 2. פילוג מטריצה על סכום סקלרים
+
+**נוסחה:**  
+\[
+(c + d)A = cA + dA
+\]
+
+**דוגמה:**  
+אם  
+\[
+A = \begin{bmatrix} 1 & 3 \end{bmatrix}, \quad c = 2, \quad d = 5
+\]  
+אז:  
+\[
+(c + d)A = 7 \cdot \begin{bmatrix} 1 & 3 \end{bmatrix} = \begin{bmatrix} 7 & 21 \end{bmatrix}
+\]  
+ולעומת זאת:  
+\[
+cA + dA = \begin{bmatrix} 2 & 6 \end{bmatrix} + \begin{bmatrix} 5 & 15 \end{bmatrix} = \begin{bmatrix} 7 & 21 \end{bmatrix}
+\]
+
+---
+
+## 3. שילוב כפל סקלרים
+
+**נוסחה:**  
+\[
+c(dA) = (cd)A
+\]
+
+**דוגמה:**  
+אם  
+\[
+A = \begin{bmatrix} 2 & -1 \end{bmatrix}, \quad c = 3, \quad d = 4
+\]  
+אז:  
+\[
+c(dA) = 3 \cdot (4 \cdot \begin{bmatrix} 2 & -1 \end{bmatrix}) = 3 \cdot \begin{bmatrix} 8 & -4 \end{bmatrix} = \begin{bmatrix} 24 & -12 \end{bmatrix}
+\]  
+ולעומת זאת:  
+\[
+(cd)A = 12 \cdot \begin{bmatrix} 2 & -1 \end{bmatrix} = \begin{bmatrix} 24 & -12 \end{bmatrix}
+\]
+
+---
+
+## 4. כפל בסקלר 1
+
+**נוסחה:**  
+\[
+1A = A
+\]
+
+**דוגמה:**  
+אם  
+\[
+A = \begin{bmatrix} 5 & 7 \end{bmatrix}
+\]  
+אז  
+\[
+1A = \begin{bmatrix} 5 & 7 \end{bmatrix}
+\]
+
+---
+
+## 5. כפל בסקלר 0
+
+**נוסחה:**  
+\[
+0A = \begin{bmatrix} 0 & 0 \end{bmatrix} \quad \text{(וקטור אפס או מטריצת אפסים)}
+\]
+
+**דוגמה:**  
+אם  
+\[
+A = \begin{bmatrix} 9 & -2 \end{bmatrix}
+\]  
+אז  
+\[
+0A = \begin{bmatrix} 0 & 0 \end{bmatrix}
+\]
+
+---
+
+## 6. כפל בסקלר -1
+
+**נוסחה:**  
+\[
+(-1)A = -A
+\]
+
+**דוגמה:**  
+אם  
+\[
+A = \begin{bmatrix} 4 & -6 \end{bmatrix}
+\]  
+אז  
+\[
+(-1)A = \begin{bmatrix} -4 & 6 \end{bmatrix} = -A
+\]
+
