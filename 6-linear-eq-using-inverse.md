@@ -1,180 +1,129 @@
-# פתרון משוואות לינאריות באמצעות מטריצה הפוכה (Solving Linear Equations Using Inverse Matrix)
+# Solving Linear Equations Using Inverse Matrix
 
-## הקדמה
+## Introduction
 
-מערכת משוואות לינאריות יכולה להיות מיוצגת בצורת מטריצה. כאשר נתונה מערכת משוואות לינאריות, אפשר לכתוב אותה בצורה:
+A system of linear equations can be represented in matrix form. When we have a system of linear equations, we can write it as:
 
-AX = B
+$$AX = B$$
 
-כאשר:
-- A היא מטריצת המקדמים
-- X היא מטריצת (או וקטור) הנעלמים
-- B היא מטריצת (או וקטור) האיברים החופשיים
+Where:
+- $A$ is the coefficient matrix
+- $X$ is the matrix (or vector) of unknowns
+- $B$ is the matrix (or vector) of constant terms
 
-אם מטריצה A הפיכה (כלומר, הדטרמיננטה שלה שונה מאפס), אז פתרון המערכת הוא:
+If matrix $A$ is invertible (meaning its determinant is non-zero), then the solution to the system is:
 
-X = A^(-1)B
+$$X = A^{-1}B$$
 
-## שלבי הפתרון
+## Solution Steps
 
-1. ארגן את מערכת המשוואות בצורת מטריצה AX = B
-2. חשב את הדטרמיננטה של A כדי לוודא שהיא הפיכה (det(A) ≠ 0)
-3. חשב את המטריצה ההפוכה A^(-1)
-4. הכפל את שני האגפים ב-A^(-1) מצד שמאל: A^(-1)AX = A^(-1)B
-5. פשט: IX = A^(-1)B, כלומר X = A^(-1)B
+1. Organize the system of equations in matrix form $AX = B$
+2. Calculate the determinant of $A$ to ensure it's invertible (det$(A) \neq 0$)
+3. Calculate the inverse matrix $A^{-1}$
+4. Multiply both sides by $A^{-1}$ on the left: $A^{-1}AX = A^{-1}B$
+5. Simplify: $IX = A^{-1}B$, meaning $X = A^{-1}B$
 
-## דוגמה עם 2 נעלמים
+## Example with 2 Unknowns
 
-נפתור את המערכת הבאה:
+Let's solve the following system:
 ```
 3x + 2y = 14
 2x + 5y = 19
 ```
 
-### שלב 1: ארגון בצורת מטריצה
+### Step 1: Organize in Matrix Form
 
-```
-A = [3  2]
-    [2  5]
+$$A = \begin{bmatrix} 3 & 2 \\ 2 & 5 \end{bmatrix}$$
 
-X = [x]
-    [y]
+$$X = \begin{bmatrix} x \\ y \end{bmatrix}$$
 
-B = [14]
-    [19]
-```
+$$B = \begin{bmatrix} 14 \\ 19 \end{bmatrix}$$
 
-### שלב 2: חישוב הדטרמיננטה
+### Step 2: Calculate the Determinant
 
-```
-det(A) = 3×5 - 2×2 = 15 - 4 = 11
-```
+$$\text{det}(A) = 3 \times 5 - 2 \times 2 = 15 - 4 = 11$$
 
-מכיוון ש-det(A) ≠ 0, המטריצה A הפיכה והמערכת יש לה פתרון יחיד.
+Since det$(A) \neq 0$, matrix $A$ is invertible and the system has a unique solution.
 
-### שלב 3: חישוב המטריצה ההפוכה
+### Step 3: Calculate the Inverse Matrix
 
-המטריצה המצורפת (adjugate) של A:
-```
-adj(A) = [5   -2]
-         [-2   3]
-```
+The adjugate matrix of $A$:
 
-המטריצה ההפוכה:
-```
-A^(-1) = (1/det(A)) × adj(A) = (1/11) × [5   -2]
-                                          [-2   3]
-        = [5/11   -2/11]
-          [-2/11   3/11]
-```
+$$\text{adj}(A) = \begin{bmatrix} 5 & -2 \\ -2 & 3 \end{bmatrix}$$
 
-### שלב 4: הכפלה ב-A^(-1) מצד שמאל
+The inverse matrix:
 
-```
-X = A^(-1) × B = [5/11   -2/11] × [14] = [5/11×14 + (-2/11)×19]
-                  [-2/11   3/11]   [19]   [-2/11×14 + 3/11×19]
-```
+$$A^{-1} = \frac{1}{\text{det}(A)} \times \text{adj}(A) = \frac{1}{11} \times \begin{bmatrix} 5 & -2 \\ -2 & 3 \end{bmatrix} = \begin{bmatrix} \frac{5}{11} & \frac{-2}{11} \\ \frac{-2}{11} & \frac{3}{11} \end{bmatrix}$$
 
-### שלב 5: חישוב הפתרון
+### Step 4: Multiply by $A^{-1}$ on the Left
 
-```
-X = [70/11 - 38/11] = [32/11] = [2.91]
-    [-28/11 + 57/11]   [29/11]   [2.64]
-```
+$$X = A^{-1} \times B = \begin{bmatrix} \frac{5}{11} & \frac{-2}{11} \\ \frac{-2}{11} & \frac{3}{11} \end{bmatrix} \times \begin{bmatrix} 14 \\ 19 \end{bmatrix} = \begin{bmatrix} \frac{5}{11} \times 14 + \frac{-2}{11} \times 19 \\ \frac{-2}{11} \times 14 + \frac{3}{11} \times 19 \end{bmatrix}$$
 
-לכן, x = 2.91 ו-y = 2.64 (או במדויק: x = 32/11, y = 29/11).
+### Step 5: Calculate the Solution
 
-## דוגמה עם 3 נעלמים
+$$X = \begin{bmatrix} \frac{70}{11} - \frac{38}{11} \\ \frac{-28}{11} + \frac{57}{11} \end{bmatrix} = \begin{bmatrix} \frac{32}{11} \\ \frac{29}{11} \end{bmatrix} \approx \begin{bmatrix} 2.91 \\ 2.64 \end{bmatrix}$$
 
-נפתור את המערכת הבאה:
+Therefore, $x = \frac{32}{11} \approx 2.91$ and $y = \frac{29}{11} \approx 2.64$.
+
+## Example with 3 Unknowns
+
+Let's solve the following system:
 ```
 2x + y + z = 5
 x + 3y + 2z = 10
 3x + 2y + 4z = 16
 ```
 
-### שלב 1: ארגון בצורת מטריצה
+### Step 1: Organize in Matrix Form
 
-```
-A = [2  1  1]
-    [1  3  2]
-    [3  2  4]
+$$A = \begin{bmatrix} 2 & 1 & 1 \\ 1 & 3 & 2 \\ 3 & 2 & 4 \end{bmatrix}$$
 
-X = [x]
-    [y]
-    [z]
+$$X = \begin{bmatrix} x \\ y \\ z \end{bmatrix}$$
 
-B = [5]
-    [10]
-    [16]
-```
+$$B = \begin{bmatrix} 5 \\ 10 \\ 16 \end{bmatrix}$$
 
-### שלב 2: חישוב הדטרמיננטה
+### Step 2: Calculate the Determinant
 
-```
-det(A) = 2×(3×4 - 2×2) - 1×(1×4 - 2×3) + 1×(1×2 - 3×3)
-       = 2×(12 - 4) - 1×(4 - 6) + 1×(2 - 9)
-       = 2×8 - 1×(-2) + 1×(-7)
-       = 16 + 2 - 7
-       = 11
-```
+$$\text{det}(A) = 2 \times (3 \times 4 - 2 \times 2) - 1 \times (1 \times 4 - 2 \times 3) + 1 \times (1 \times 2 - 3 \times 3)$$
+$$= 2 \times (12 - 4) - 1 \times (4 - 6) + 1 \times (2 - 9)$$
+$$= 2 \times 8 - 1 \times (-2) + 1 \times (-7)$$
+$$= 16 + 2 - 7 = 11$$
 
-מכיוון ש-det(A) ≠ 0, המטריצה A הפיכה והמערכת יש לה פתרון יחיד.
+Since det$(A) \neq 0$, matrix $A$ is invertible and the system has a unique solution.
 
-### שלב 3: חישוב המטריצה ההפוכה
+### Step 3: Calculate the Inverse Matrix
 
-כדי לחשב את המטריצה ההפוכה למטריצה 3×3, נחשב תחילה את המטריצה המצורפת.
+To calculate the inverse of a 3×3 matrix, we first compute the adjugate matrix.
 
-המטריצה המצורפת (adjugate) של A:
-```
-adj(A) = [ (3×4-2×2)  -(1×4-2×3)   (1×2-3×3) ]
-         [-(2×4-1×3)   (2×4-1×1)  -(2×2-1×3) ]
-         [ (2×2-1×3)  -(2×1-1×3)   (2×3-1×2) ]
-       = [ 8   2   -7 ]
-         [ -5  7    1 ]
-         [ 1  -1    4 ]
-```
+The adjugate matrix of $A$:
 
-המטריצה ההפוכה:
-```
-A^(-1) = (1/det(A)) × adj(A) = (1/11) × [ 8   2   -7 ]
-                                          [ -5  7    1 ]
-                                          [ 1  -1    4 ]
-        = [ 8/11   2/11   -7/11 ]
-          [ -5/11  7/11    1/11 ]
-          [ 1/11  -1/11    4/11 ]
-```
+$$\text{adj}(A) = \begin{bmatrix} (3 \times 4 - 2 \times 2) & -(1 \times 4 - 2 \times 3) & (1 \times 2 - 3 \times 3) \\ -(2 \times 4 - 1 \times 3) & (2 \times 4 - 1 \times 1) & -(2 \times 2 - 1 \times 3) \\ (2 \times 2 - 1 \times 3) & -(2 \times 1 - 1 \times 3) & (2 \times 3 - 1 \times 2) \end{bmatrix}$$
 
-### שלב 4: הכפלה ב-A^(-1) מצד שמאל
+$$= \begin{bmatrix} 8 & 2 & -7 \\ -5 & 7 & 1 \\ 1 & -1 & 4 \end{bmatrix}$$
 
-```
-X = A^(-1) × B = [ 8/11   2/11   -7/11 ] × [5]
-                  [ -5/11  7/11    1/11 ]   [10]
-                  [ 1/11  -1/11    4/11 ]   [16]
-```
+The inverse matrix:
 
-### שלב 5: חישוב הפתרון
+$$A^{-1} = \frac{1}{\text{det}(A)} \times \text{adj}(A) = \frac{1}{11} \times \begin{bmatrix} 8 & 2 & -7 \\ -5 & 7 & 1 \\ 1 & -1 & 4 \end{bmatrix}$$
 
-```
-X = [ 8/11×5 + 2/11×10 + (-7/11)×16 ]
-    [ -5/11×5 + 7/11×10 + 1/11×16 ]
-    [ 1/11×5 + (-1/11)×10 + 4/11×16 ]
-  = [ 40/11 + 20/11 - 112/11 ]
-    [ -25/11 + 70/11 + 16/11 ]
-    [ 5/11 - 10/11 + 64/11 ]
-  = [ -52/11 ]
-    [ 61/11 ]
-    [ 59/11 ]
-  = [ -4.73 ]
-    [ 5.55 ]
-    [ 5.36 ]
-```
+$$= \begin{bmatrix} \frac{8}{11} & \frac{2}{11} & \frac{-7}{11} \\ \frac{-5}{11} & \frac{7}{11} & \frac{1}{11} \\ \frac{1}{11} & \frac{-1}{11} & \frac{4}{11} \end{bmatrix}$$
 
-לכן, x = -4.73, y = 5.55, ו-z = 5.36 (או במדויק: x = -52/11, y = 61/11, z = 59/11).
+### Step 4: Multiply by $A^{-1}$ on the Left
 
-## דוגמה עם 4 נעלמים
+$$X = A^{-1} \times B = \begin{bmatrix} \frac{8}{11} & \frac{2}{11} & \frac{-7}{11} \\ \frac{-5}{11} & \frac{7}{11} & \frac{1}{11} \\ \frac{1}{11} & \frac{-1}{11} & \frac{4}{11} \end{bmatrix} \times \begin{bmatrix} 5 \\ 10 \\ 16 \end{bmatrix}$$
 
-נפתור את המערכת הבאה:
+### Step 5: Calculate the Solution
+
+$$X = \begin{bmatrix} \frac{8}{11} \times 5 + \frac{2}{11} \times 10 + \frac{-7}{11} \times 16 \\ \frac{-5}{11} \times 5 + \frac{7}{11} \times 10 + \frac{1}{11} \times 16 \\ \frac{1}{11} \times 5 + \frac{-1}{11} \times 10 + \frac{4}{11} \times 16 \end{bmatrix}$$
+
+$$= \begin{bmatrix} \frac{40}{11} + \frac{20}{11} - \frac{112}{11} \\ \frac{-25}{11} + \frac{70}{11} + \frac{16}{11} \\ \frac{5}{11} - \frac{10}{11} + \frac{64}{11} \end{bmatrix}$$
+
+$$= \begin{bmatrix} \frac{-52}{11} \\ \frac{61}{11} \\ \frac{59}{11} \end{bmatrix} \approx \begin{bmatrix} -4.73 \\ 5.55 \\ 5.36 \end{bmatrix}$$
+
+Therefore, $x = \frac{-52}{11} \approx -4.73$, $y = \frac{61}{11} \approx 5.55$, and $z = \frac{59}{11} \approx 5.36$.
+
+## Example with 4 Unknowns
+
+Let's solve the following system:
 ```
 x + y - z + w = 4
 2x - y + 2z - w = 3
@@ -182,71 +131,48 @@ x + y - z + w = 4
 x - 3y - 3z + 3w = 2
 ```
 
-### שלב 1: ארגון בצורת מטריצה
+### Step 1: Organize in Matrix Form
 
-```
-A = [1   1  -1   1]
-    [2  -1   2  -1]
-    [3   2  -1  -2]
-    [1  -3  -3   3]
+$$A = \begin{bmatrix} 1 & 1 & -1 & 1 \\ 2 & -1 & 2 & -1 \\ 3 & 2 & -1 & -2 \\ 1 & -3 & -3 & 3 \end{bmatrix}$$
 
-X = [x]
-    [y]
-    [z]
-    [w]
+$$X = \begin{bmatrix} x \\ y \\ z \\ w \end{bmatrix}$$
 
-B = [4]
-    [3]
-    [0]
-    [2]
-```
+$$B = \begin{bmatrix} 4 \\ 3 \\ 0 \\ 2 \end{bmatrix}$$
 
-### שלב 2: חישוב הדטרמיננטה
-חישוב דטרמיננטה של מטריצה 4×4 הוא תהליך מורכב. במקרה הזה, det(A) = 18 ≠ 0, ולכן המטריצה A הפיכה.
+### Step 2: Calculate the Determinant
 
-### שלב 3: חישוב המטריצה ההפוכה
-בפועל, חישוב המטריצה ההפוכה למטריצה 4×4 נעשה בדרך כלל באמצעות אלגוריתמים ממוחשבים. המטריצה ההפוכה במקרה זה היא:
+Calculating the determinant of a 4×4 matrix is a complex process. In this case, det$(A) = 18 \neq 0$, so matrix $A$ is invertible.
 
-```
-A^(-1) = [ 1/6    1/3    0      0    ]
-         [ 2/9    1/9    1/9   -1/3  ]
-         [ 1/18   1/9    1/18  -1/6  ]
-         [ 2/9    1/3    1/9   -1/3  ]
-```
+### Step 3: Calculate the Inverse Matrix
 
-### שלב 4 ו-5: הכפלה ב-A^(-1) וחישוב הפתרון
+In practice, the inverse of a 4×4 matrix is usually calculated using computational algorithms. The inverse matrix in this case is:
 
-```
-X = A^(-1) × B = [ 1/6    1/3    0      0    ] × [4]
-                  [ 2/9    1/9    1/9   -1/3  ]   [3]
-                  [ 1/18   1/9    1/18  -1/6  ]   [0]
-                  [ 2/9    1/3    1/9   -1/3  ]   [2]
-```
+$$A^{-1} = \begin{bmatrix} \frac{1}{6} & \frac{1}{3} & 0 & 0 \\ \frac{2}{9} & \frac{1}{9} & \frac{1}{9} & \frac{-1}{3} \\ \frac{1}{18} & \frac{1}{9} & \frac{1}{18} & \frac{-1}{6} \\ \frac{2}{9} & \frac{1}{3} & \frac{1}{9} & \frac{-1}{3} \end{bmatrix}$$
 
-לאחר ביצוע החישובים, נקבל:
-```
-X = [2]
-    [1]
-    [0]
-    [1]
-```
+### Steps 4 and 5: Multiply by $A^{-1}$ and Calculate the Solution
 
-לכן, x = 2, y = 1, z = 0, ו-w = 1.
+$$X = A^{-1} \times B = \begin{bmatrix} \frac{1}{6} & \frac{1}{3} & 0 & 0 \\ \frac{2}{9} & \frac{1}{9} & \frac{1}{9} & \frac{-1}{3} \\ \frac{1}{18} & \frac{1}{9} & \frac{1}{18} & \frac{-1}{6} \\ \frac{2}{9} & \frac{1}{3} & \frac{1}{9} & \frac{-1}{3} \end{bmatrix} \times \begin{bmatrix} 4 \\ 3 \\ 0 \\ 2 \end{bmatrix}$$
 
-## סיכום
+After performing the calculations, we get:
 
-השיטה של פתרון מערכת משוואות לינאריות באמצעות מטריצה הפוכה היא שיטה יעילה ואלגנטית, במיוחד כאשר:
-1. מספר המשוואות שווה למספר הנעלמים
-2. הדטרמיננטה של מטריצת המקדמים שונה מאפס (כלומר, יש פתרון יחיד)
+$$X = \begin{bmatrix} 2 \\ 1 \\ 0 \\ 1 \end{bmatrix}$$
 
-יתרונות השיטה:
-- מתודית ושיטתית
-- מאפשרת טיפול במערכות משוואות גדולות
-- נוחה ליישום באמצעים ממוחשבים
+Therefore, $x = 2$, $y = 1$, $z = 0$, and $w = 1$.
 
-חסרונות השיטה:
-- חישוב המטריצה ההפוכה עלול להיות מורכב, במיוחד למטריצות גדולות
-- רגישה לשגיאות עיגול בחישובים מספריים
-- לא יעילה חישובית כמו שיטות אחרות (למשל, פירוק LU)
+## Summary
 
-בפרקטיקה, לפתרון מערכות גדולות של משוואות לינאריות משתמשים בדרך כלל בשיטות נומריות אחרות, אך הבנת השיטה של מטריצה הפוכה מספקת תובנות חשובות לאלגברה לינארית ולתכונות של מערכות משוואות.
+The method of solving a system of linear equations using an inverse matrix is an efficient and elegant approach, especially when:
+1. The number of equations equals the number of unknowns
+2. The determinant of the coefficient matrix is non-zero (meaning there is a unique solution)
+
+Advantages of the method:
+- Methodical and systematic
+- Allows handling of large systems of equations
+- Convenient for implementation using computational tools
+
+Disadvantages of the method:
+- Calculating the inverse matrix can be complex, especially for large matrices
+- Sensitive to rounding errors in numerical calculations
+- Not as computationally efficient as other methods (e.g., LU decomposition)
+
+In practice, other numerical methods are usually used to solve large systems of linear equations, but understanding the inverse matrix method provides important insights into linear algebra and the properties of equation systems.
