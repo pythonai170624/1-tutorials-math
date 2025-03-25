@@ -121,10 +121,10 @@ A = [a  b]
 ```
 
 הקופקטורים הם:
-For a: (-1)^(1+1) × det([d]) = 1 × d = d
-For b: (-1)^(1+2) × det([c]) = -1 × c = -c
-For c: (-1)^(2+1) × det([b]) = -1 × b = -b
-For d: (-1)^(2+2) × det([a]) = 1 × a = a
+-  $a$: $(-1)^{1+1} \times \det([d]) = 1 \times d = d$
+ -  $b$: $(-1)^{1+2} \times \det([c]) = -1 \times c = -c$
+ -  $c$: $(-1)^{2+1} \times \det([b]) = -1 \times b = -b$
+ -  $d$: $(-1)^{2+2} \times \det([a]) = 1 \times a = a$
 
 מטריצת הקופקטורים:
 ```
