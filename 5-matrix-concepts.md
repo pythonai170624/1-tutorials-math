@@ -182,8 +182,8 @@ E = [1  2  3]
    [5  6]
    [8  9]
    ```
-   - חשב דטרמיננטה: $5 \times 9 - 6 \times 8 = 45 - 48 = -3$
-   - הכפל ב-(-1)^(1+1) = 1: 1 \times (-3) = -3
+   - Calculate the determinant: $5 \times 9 - 6 \times 8 = 45 - 48 = -3$
+   - Multiply by $(-1)^{1+1} = 1$: $1 \times (-3) = -3$
 
 2. בצורה דומה, חשב את כל הקופקטורים האחרים:
    - $C_{12}$ = (-1)^(1+2) \times \det\begin{bmatrix} 4 & 6 \\ 7 & 9 \end{bmatrix} = -1 \times (36-42) = -1 \times (-6) = 6$
