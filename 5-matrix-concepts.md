@@ -185,11 +185,17 @@ E = [1  2  3]
    - Calculate the determinant: $5 \times 9 - 6 \times 8 = 45 - 48 = -3$
    - Multiply by $(-1)^{1+1} = 1$: $1 \times (-3) = -3$
 
-Similarly, calculate all other cofactors:
-$C_{12} = (-1)^{1+2} \times \det\begin{pmatrix} 4 & 6 \ 7 & 9 \end{pmatrix} = -1 \times (36-42) = -1 \times (-6) = 6$
-$C_{13} = (-1)^{1+3} \times \det\begin{pmatrix} 4 & 5 \ 7 & 8 \end{pmatrix} = 1 \times (32-35) = 1 \times (-3) = -3$
- 
-And so on for all elements of the matrix...
+2. Similarly, calculate all other cofactors:
+   - For $C_{12}$: Delete row 1 and column 2, leaving the submatrix $\begin{bmatrix} 4 & 6 \\ 7 & 9 \end{bmatrix}$
+     The minor is $4 \times 9 - 6 \times 7 = 36 - 42 = -6$
+     Then $C_{12} = (-1)^{1+2} \times (-6) = -1 \times (-6) = 6$
+   
+   - For $C_{13}$: Delete row 1 and column 3, leaving the submatrix $\begin{bmatrix} 4 & 5 \\ 7 & 8 \end{bmatrix}$
+     The minor is $4 \times 8 - 5 \times 7 = 32 - 35 = -3$
+     Then $C_{13} = (-1)^{1+3} \times (-3) = 1 \times (-3) = -3$
+   
+   - And so on for all elements of the matrix...
+
    
 3. מטריצת הקופקטורים המלאה:
 ```
