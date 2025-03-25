@@ -186,23 +186,23 @@ E = [1  2  3]
    - Multiply by $(-1)^{1+1} = 1$: $1 \times (-3) = -3$
 
 2. Similarly, calculate all other cofactors:
-   - For $C12$: Delete row 1 and column 2, leaving the submatrix 
+   - For $C_{12}$: Delete row 1 and column 2, leaving the submatrix 
      ```
      [4  6]
      [7  9]
      ```
      The minor is 4 × 9 - 6 × 7 = 36 - 42 = -6
      
-     Then $C12$ = (-1)^(1+2) × (-6) = -1 × (-6) = 6
+     Then $C_{12}$ = (-1)^(1+2) × (-6) = -1 × (-6) = 6
    
-   - For $C13$: Delete row 1 and column 3, leaving the submatrix 
+   - For $C_{13}$: Delete row 1 and column 3, leaving the submatrix 
      ```
      [4  5]
      [7  8]
      ```
      The minor is 4 × 8 - 5 × 7 = 32 - 35 = -3
      
-     Then $C13$ = (-1)^(1+3) × (-3) = 1 × (-3) = -3
+     Then $C_{13}$ = (-1)^(1+3) × (-3) = 1 × (-3) = -3
    
    - And so on for all elements of the matrix...
    
