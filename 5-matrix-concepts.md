@@ -188,6 +188,7 @@ E = [1  2  3]
 2. Similarly, calculate all other cofactors:
 - $C_{12} = (-1)^{1+2} \times \det\begin{bmatrix} 4 & 6 \ 7 & 9 \end{bmatrix} = -1 \times (36-42) = -1 \times (-6) = 6$
 - $C_{13} = (-1)^{1+3} \times \det\begin{bmatrix} 4 & 5 \ 7 & 8 \end{bmatrix} = 1 \times (32-35) = 1 \times (-3) = -3$
+  
 And so on for all elements of the matrix...
    
 3. מטריצת הקופקטורים המלאה:
