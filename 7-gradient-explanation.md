@@ -79,6 +79,8 @@ $$\nabla f = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}
    כאשר $\alpha$ היא קצב הלמידה (learning rate)
 4. חזור על צעדים 2-3 עד להתכנסות
 
+<img src="grad_desc.png" />
+
 ## קצב הלמידה (Learning Rate) והיפר-פרמטרים
 
 ### קצב הלמידה
