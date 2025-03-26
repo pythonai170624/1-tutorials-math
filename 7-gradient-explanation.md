@@ -78,8 +78,9 @@ $$\nabla f = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}
    $\theta_{t+1} = \theta_t - \alpha \nabla f(\theta_t)$
    כאשר $\alpha$ היא קצב הלמידה (learning rate)
 4. חזור על צעדים 2-3 עד להתכנסות
-
+<div style="text-align: center;">
 <img src="grad_desc.png" />
+</div>
 
 ## קצב הלמידה (Learning Rate) והיפר-פרמטרים
 
