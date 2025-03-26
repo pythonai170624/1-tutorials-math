@@ -4,48 +4,48 @@
 
 פונקציה ריבועית בשני משתנים היא פונקציה בצורה כללית:
 
-$$f(x, y) = ax^2 + by^2 + c$$
+f(x, y) = ax^2 + by^2 + c
 
-במקרה הפרטי שבו $a = 1$, $b = 1$ ו-$c = 0$, מקבלים את הפונקציה:
+במקרה הפרטי שבו a = 1, b = 1 ו-c = 0, מקבלים את הפונקציה:
 
-$$f(x, y) = x^2 + y^2$$
+f(x, y) = x^2 + y^2
 
-זוהי פונקציה שמייצרת פרבולואיד סיבובי (מעין "קערה") במרחב התלת-ממדי, כאשר הנקודה $(0,0)$ היא נקודת המינימום שלה.
+זוהי פונקציה שמייצרת פרבולואיד סיבובי (מעין "קערה") במרחב התלת-ממדי, כאשר הנקודה (0,0) היא נקודת המינימום שלה.
 
 ## Mean Squared Error (MSE) עבור מודל ריבועי
 
-בהינתן מודל ריבועי $f(x, y) = ax^2 + by^2 + c$, פונקציית ה-MSE מחושבת בין תחזיות המודל לערכים האמיתיים:
+בהינתן מודל ריבועי f(x, y) = ax^2 + by^2 + c, פונקציית ה-MSE מחושבת בין תחזיות המודל לערכים האמיתיים:
 
-$$MSE(a, b, c) = \frac{1}{n} \sum_{i=1}^{n} (z_i - f(x_i, y_i))^2$$
+MSE(a, b, c) = \frac{1}{n} \sum_{i=1}^{n} (z_i - f(x_i, y_i))^2
 
-$$MSE(a, b, c) = \frac{1}{n} \sum_{i=1}^{n} (z_i - (ax_i^2 + by_i^2 + c))^2$$
+MSE(a, b, c) = \frac{1}{n} \sum_{i=1}^{n} (z_i - (ax_i^2 + by_i^2 + c))^2
 
 כאשר:
-- $(x_i, y_i, z_i)$ הם הנקודות בקבוצת הנתונים
-- $n$ הוא מספר הנקודות
-- $a$, $b$ ו-$c$ הם הפרמטרים של המודל שאנחנו מנסים להתאים
+- (x_i, y_i, z_i) הם הנקודות בקבוצת הנתונים
+- n הוא מספר הנקודות
+- a, b ו-c הם הפרמטרים של המודל שאנחנו מנסים להתאים
 
 ## חישוב הנגזרות (הגרדיאנטים) של MSE עבור מודל ריבועי
 
-כדי למזער את פונקציית ה-MSE באמצעות ירידת גרדיאנט, אנחנו צריכים לחשב את הנגזרות החלקיות של ה-MSE ביחס לפרמטרים $a$, $b$ ו-$c$.
+כדי למזער את פונקציית ה-MSE באמצעות ירידת גרדיאנט, אנחנו צריכים לחשב את הנגזרות החלקיות של ה-MSE ביחס לפרמטרים a, b ו-c.
 
 ### הנגזרת ביחס ל-a
 
-$$\frac{\partial MSE}{\partial a} = \frac{\partial}{\partial a} \left[ \frac{1}{n} \sum_{i=1}^{n} (z_i - (ax_i^2 + by_i^2 + c))^2 \right]$$
+\frac{\partial MSE}{\partial a} = \frac{\partial}{\partial a} \left[ \frac{1}{n} \sum_{i=1}^{n} (z_i - (ax_i^2 + by_i^2 + c))^2 \right]
 
 נפתח את הביטוי:
 
-$$\frac{\partial MSE}{\partial a} = \frac{1}{n} \sum_{i=1}^{n} \frac{\partial}{\partial a} [(z_i - ax_i^2 - by_i^2 - c)^2]$$
+\frac{\partial MSE}{\partial a} = \frac{1}{n} \sum_{i=1}^{n} \frac{\partial}{\partial a} [(z_i - ax_i^2 - by_i^2 - c)^2]
 
-נשתמש בכלל שרשרת: $\frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x)$
+נשתמש בכלל שרשרת: \frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x)
 
-$$\frac{\partial MSE}{\partial a} = \frac{1}{n} \sum_{i=1}^{n} 2(z_i - ax_i^2 - by_i^2 - c) \cdot (-x_i^2)$$
+\frac{\partial MSE}{\partial a} = \frac{1}{n} \sum_{i=1}^{n} 2(z_i - ax_i^2 - by_i^2 - c) \cdot (-x_i^2)
 
-$$\frac{\partial MSE}{\partial a} = \frac{1}{n} \sum_{i=1}^{n} -2x_i^2(z_i - ax_i^2 - by_i^2 - c)$$
+\frac{\partial MSE}{\partial a} = \frac{1}{n} \sum_{i=1}^{n} -2x_i^2(z_i - ax_i^2 - by_i^2 - c)
 
-מכיוון שהשגיאה היא $e_i = \hat{z}_i - z_i = (ax_i^2 + by_i^2 + c) - z_i$, נקבל:
+מכיוון שהשגיאה היא e_i = \hat{z}_i - z_i = (ax_i^2 + by_i^2 + c) - z_i, נקבל:
 
-$$\frac{\partial MSE}{\partial a} = \frac{2}{n} \sum_{i=1}^{n} x_i^2 \cdot e_i$$
+\frac{\partial MSE}{\partial a} = \frac{2}{n} \sum_{i=1}^{n} x_i^2 \cdot e_i
 
 וזה בדיוק מה שמחושב בקוד:
 
@@ -57,17 +57,17 @@ da = (2/n) * np.sum(errors * X**2)
 
 באופן דומה:
 
-$$\frac{\partial MSE}{\partial b} = \frac{\partial}{\partial b} \left[ \frac{1}{n} \sum_{i=1}^{n} (z_i - (ax_i^2 + by_i^2 + c))^2 \right]$$
+\frac{\partial MSE}{\partial b} = \frac{\partial}{\partial b} \left[ \frac{1}{n} \sum_{i=1}^{n} (z_i - (ax_i^2 + by_i^2 + c))^2 \right]
 
-$$\frac{\partial MSE}{\partial b} = \frac{1}{n} \sum_{i=1}^{n} \frac{\partial}{\partial b} [(z_i - ax_i^2 - by_i^2 - c)^2]$$
+\frac{\partial MSE}{\partial b} = \frac{1}{n} \sum_{i=1}^{n} \frac{\partial}{\partial b} [(z_i - ax_i^2 - by_i^2 - c)^2]
 
-$$\frac{\partial MSE}{\partial b} = \frac{1}{n} \sum_{i=1}^{n} 2(z_i - ax_i^2 - by_i^2 - c) \cdot (-y_i^2)$$
+\frac{\partial MSE}{\partial b} = \frac{1}{n} \sum_{i=1}^{n} 2(z_i - ax_i^2 - by_i^2 - c) \cdot (-y_i^2)
 
-$$\frac{\partial MSE}{\partial b} = \frac{1}{n} \sum_{i=1}^{n} -2y_i^2(z_i - ax_i^2 - by_i^2 - c)$$
+\frac{\partial MSE}{\partial b} = \frac{1}{n} \sum_{i=1}^{n} -2y_i^2(z_i - ax_i^2 - by_i^2 - c)
 
 ושוב, עם הגדרת השגיאה:
 
-$$\frac{\partial MSE}{\partial b} = \frac{2}{n} \sum_{i=1}^{n} y_i^2 \cdot e_i$$
+\frac{\partial MSE}{\partial b} = \frac{2}{n} \sum_{i=1}^{n} y_i^2 \cdot e_i
 
 וזה בדיוק מה שמחושב בקוד:
 
@@ -77,17 +77,17 @@ db = (2/n) * np.sum(errors * Y**2)
 
 ### הנגזרת ביחס ל-c
 
-$$\frac{\partial MSE}{\partial c} = \frac{\partial}{\partial c} \left[ \frac{1}{n} \sum_{i=1}^{n} (z_i - (ax_i^2 + by_i^2 + c))^2 \right]$$
+\frac{\partial MSE}{\partial c} = \frac{\partial}{\partial c} \left[ \frac{1}{n} \sum_{i=1}^{n} (z_i - (ax_i^2 + by_i^2 + c))^2 \right]
 
-$$\frac{\partial MSE}{\partial c} = \frac{1}{n} \sum_{i=1}^{n} \frac{\partial}{\partial c} [(z_i - ax_i^2 - by_i^2 - c)^2]$$
+\frac{\partial MSE}{\partial c} = \frac{1}{n} \sum_{i=1}^{n} \frac{\partial}{\partial c} [(z_i - ax_i^2 - by_i^2 - c)^2]
 
-$$\frac{\partial MSE}{\partial c} = \frac{1}{n} \sum_{i=1}^{n} 2(z_i - ax_i^2 - by_i^2 - c) \cdot (-1)$$
+\frac{\partial MSE}{\partial c} = \frac{1}{n} \sum_{i=1}^{n} 2(z_i - ax_i^2 - by_i^2 - c) \cdot (-1)
 
-$$\frac{\partial MSE}{\partial c} = \frac{1}{n} \sum_{i=1}^{n} -2(z_i - ax_i^2 - by_i^2 - c)$$
+\frac{\partial MSE}{\partial c} = \frac{1}{n} \sum_{i=1}^{n} -2(z_i - ax_i^2 - by_i^2 - c)
 
 ושוב, עם הגדרת השגיאה:
 
-$$\frac{\partial MSE}{\partial c} = \frac{2}{n} \sum_{i=1}^{n} e_i$$
+\frac{\partial MSE}{\partial c} = \frac{2}{n} \sum_{i=1}^{n} e_i
 
 וזה בדיוק מה שמחושב בקוד:
 
@@ -119,15 +119,15 @@ def compute_gradients(a, b, c, X, Y, Z):
 
 1. `n = len(X)` - מספר הדגימות (התצפיות) בקבוצת הנתונים.
 
-2. `predictions = np.array([quadratic_function(x, y, a, b, c) for x, y in zip(X, Y)])` - מחשב את התחזיות של המודל הריבועי עבור כל זוג $(x_i, y_i)$ בהינתן הפרמטרים הנוכחיים $a$, $b$ ו-$c$. זה מחשב את $\hat{z}_i = ax_i^2 + by_i^2 + c$ לכל אחת מהנקודות.
+2. `predictions = np.array([quadratic_function(x, y, a, b, c) for x, y in zip(X, Y)])` - מחשב את התחזיות של המודל הריבועי עבור כל זוג (x_i, y_i) בהינתן הפרמטרים הנוכחיים a, b ו-c. זה מחשב את \hat{z}_i = ax_i^2 + by_i^2 + c לכל אחת מהנקודות.
 
-3. `errors = predictions - Z` - מחשב את וקטור השגיאות, כלומר את ההפרש בין התחזיות לערכים האמיתיים של $Z$. זה מחשב את $e_i = \hat{z}_i - z_i$ לכל נקודה.
+3. `errors = predictions - Z` - מחשב את וקטור השגיאות, כלומר את ההפרש בין התחזיות לערכים האמיתיים של Z. זה מחשב את e_i = \hat{z}_i - z_i לכל נקודה.
 
-4. `da = (2/n) * np.sum(errors * X**2)` - מחשב את הנגזרת החלקית של MSE ביחס ל-$a$. כפי שהראינו, זה שקול ל-$\frac{2}{n} \sum_{i=1}^{n} x_i^2 \cdot e_i$.
+4. `da = (2/n) * np.sum(errors * X**2)` - מחשב את הנגזרת החלקית של MSE ביחס ל-a. כפי שהראינו, זה שקול ל-\frac{2}{n} \sum_{i=1}^{n} x_i^2 \cdot e_i.
 
-5. `db = (2/n) * np.sum(errors * Y**2)` - מחשב את הנגזרת החלקית של MSE ביחס ל-$b$. כפי שהראינו, זה שקול ל-$\frac{2}{n} \sum_{i=1}^{n} y_i^2 \cdot e_i$.
+5. `db = (2/n) * np.sum(errors * Y**2)` - מחשב את הנגזרת החלקית של MSE ביחס ל-b. כפי שהראינו, זה שקול ל-\frac{2}{n} \sum_{i=1}^{n} y_i^2 \cdot e_i.
 
-6. `dc = (2/n) * np.sum(errors)` - מחשב את הנגזרת החלקית של MSE ביחס ל-$c$. כפי שהראינו, זה שקול ל-$\frac{2}{n} \sum_{i=1}^{n} e_i$.
+6. `dc = (2/n) * np.sum(errors)` - מחשב את הנגזרת החלקית של MSE ביחס ל-c. כפי שהראינו, זה שקול ל-\frac{2}{n} \sum_{i=1}^{n} e_i.
 
 ## תפקיד הגרדיאנטים באלגוריתם ירידת הגרדיאנט
 
@@ -147,16 +147,17 @@ c = c - learning_rate * dc
 
 הקוד שיצרנו מייצר שלושה גרפים שמציגים את תהליך הלמידה:
 
-1. **גרף תלת-ממדי**: מציג את המשטח הריבועי (הפרבולואיד) ואת נקודות הנתונים. המשטח מתעדכן בכל איטרציה ככל שהפרמטרים $a$, $b$ ו-$c$ משתנים.
+1. **גרף תלת-ממדי**: מציג את המשטח הריבועי (הפרבולואיד) ואת נקודות הנתונים. המשטח מתעדכן בכל איטרציה ככל שהפרמטרים a, b ו-c משתנים.
 
 2. **גרף שגיאה**: מציג את השגיאה (ה-MSE) על פני האיטרציות השונות. אם האלגוריתם עובד כהלכה, נצפה לראות ירידה מונוטונית בשגיאה.
 
-3. **גרף מסלול הפרמטרים**: מציג את הדרך שבה הפרמטרים $a$ ו-$b$ משתנים לאורך האיטרציות. אנו מצפים לראות את הפרמטרים מתכנסים לנקודה הקרובה לערכים האמיתיים (במקרה שלנו, $a=1$ ו-$b=1$).
+3. **גרף מסלול הפרמטרים**: מציג את הדרך שבה הפרמטרים a ו-b משתנים לאורך האיטרציות. אנו מצפים לראות את הפרמטרים מתכנסים לנקודה הקרובה לערכים האמיתיים (במקרה שלנו, a=1 ו-b=1).
 
 ## סיכום
 
 1. פונקציה ריבועית בשני משתנים יוצרת משטח "קערה" במרחב התלת-ממדי.
-2. אלגוריתם ירידת הגרדיאנט מחפש את הפרמטרים האופטימליים $a$, $b$ ו-$c$ שמזערים את שגיאת המודל.
+2. אלגוריתם ירידת הגרדיאנט מחפש את הפרמטרים האופטימליים a, b ו-c שמזערים את שגיאת המודל.
 3. הגרדיאנטים מצביעים על כיוון השינוי המהיר ביותר בפונקציית השגיאה.
 4. הויזואליזציה מאפשרת לנו לראות כיצד המודל משתפר לאורך האיטרציות ואיך הפרמטרים מתכנסים לערכיהם האופטימליים.
 5. התהליך הזה הוא הבסיס לאלגוריתמים של למידת מכונה מודרניים, גם אם פונקציות ה-Loss והמודלים בהם הרבה יותר מורכבים.
+
