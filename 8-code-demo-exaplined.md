@@ -55,7 +55,7 @@ $$\frac{\partial MSE}{\partial m} = \frac{1}{n} \sum_{i=1}^{n} -2x_i(y_i - \hat{
 
 $$\frac{\partial MSE}{\partial m} = \frac{-2}{n} \sum_{i=1}^{n} x_i(y_i - \hat{y}_i)$$
 
-מכיוון שאנחנו רגילים להגדיר את השגיאה כ-$e_i = \hat{y}_i - y_i$ (ולא $y_i - \hat{y}_i$), נקבל:
+מכיוון שאנחנו רגילים להגדיר את השגיאה כ Ei = Y^i - Yi נקבל:
 
 $$\frac{\partial MSE}{\partial m} = \frac{2}{n} \sum_{i=1}^{n} x_i(\hat{y}_i - y_i)$$
 
