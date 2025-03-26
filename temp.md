@@ -12,7 +12,7 @@
 
 ### הגדרה מתמטית
 
-עבור קבוצה של $n$ תצפיות, כאשר $y_i$ הוא הערך האמיתי ו-$hat{y}_i\$ הוא הערך החזוי, ה-MSE מוגדר כך:
+עבור קבוצה של $n$ תצפיות, כאשר $y_i$ הוא הערך האמיתי ו-Y^i הוא הערך החזוי, ה-MSE מוגדר כך:
 
 $$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
 
@@ -27,7 +27,7 @@ $$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
 
 $$\hat{y} = mx + b$$
 
-כאשר $m$ הוא השיפוע (slope) ו-$b$ הוא החותך (intercept).
+כאשר $m$ הוא השיפוע (slope) ו-b הוא החותך (intercept).
 
 פונקציית ה-MSE במקרה זה היא:
 
@@ -37,7 +37,7 @@ $$MSE(m, b) = \frac{1}{n} \sum_{i=1}^{n} (y_i - (mx_i + b))^2$$
 
 כדי למזער את פונקציית ה-MSE באמצעות ירידת גרדיאנט, אנחנו צריכים לחשב את הנגזרות החלקיות של ה-MSE ביחס לפרמטרים $m$ ו-$b$.
 
-### הנגזרת ביחס ל-$m$ (השיפוע)
+### הנגזרת ביחס ל-m (השיפוע)
 
 $$\frac{\partial MSE}{\partial m} = \frac{\partial}{\partial m} \left[ \frac{1}{n} \sum_{i=1}^{n} (y_i - (mx_i + b))^2 \right]$$
 
@@ -67,7 +67,7 @@ $$\frac{\partial MSE}{\partial m} = \frac{2}{n} \sum_{i=1}^{n} x_i \cdot e_i$$
 dm = (2/n) * np.sum(errors * X)
 ```
 
-### הנגזרת ביחס ל-$b$ (החותך)
+### הנגזרת ביחס ל-b (החותך)
 
 באופן דומה:
 
@@ -83,7 +83,7 @@ $$\frac{\partial MSE}{\partial b} = \frac{1}{n} \sum_{i=1}^{n} -2(y_i - \hat{y}_
 
 $$\frac{\partial MSE}{\partial b} = \frac{-2}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)$$
 
-ושוב, אם נגדיר את השגיאה כ-$e_i = \hat{y}_i - y_i$:
+ושוב, אם נגדיר את השגיאה כ Ei = Y^i - Yi:
 
 $$\frac{\partial MSE}{\partial b} = \frac{2}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)$$
 
