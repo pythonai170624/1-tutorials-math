@@ -21,8 +21,10 @@
 
 אם $f(x,y) = x^2y + xy^3$:
 
-* $\frac{\partial f}{\partial x} = 2xy + y^3$ (גוזרים ביחס ל-x כאשר $y$ קבוע)
-* $\frac{\partial f}{\partial y} = x^2 + 3xy^2$ (גוזרים ביחס ל-y כאשר $x$ קבוע)
+* $\frac{\partial f}{\partial x} = 2xy + y^3$
+גוזרים ביחס ל-x כאשר $y$ קבוע
+* $\frac{\partial f}{\partial y} = x^2 + 3xy^2$
+גוזרים ביחס ל-y כאשר $x$ קבוע
 
 לעומת זאת, אם $f(x)$ היא פונקציה של משתנה אחד, נשתמש ב-$\frac{df}{dx}$ לסמן את הנגזרת שלה.
 
