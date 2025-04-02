@@ -158,7 +158,8 @@ db = (2/n) * np.sum(errors)
 4. `dm = (2/n) * np.sum(errors * X)` - מחשב את הנגזרת החלקית של MSE ביחס ל-m <br/>
    <img src="formula4.jpg"/>
 
-6. `db = (2/n) * np.sum(errors)` - מחשב את הנגזרת החלקית של MSE ביחס ל-b. כפי שהראינו, זה שקול ל-$\frac{2}{n} \sum_{i=1}^{n} e_i$.
+6. `db = (2/n) * np.sum(errors)` - מחשב את הנגזרת החלקית של MSE ביחס ל-b  <br/>
+   <img src="formula5.jpg"/>
 
 ## תפקיד הגרדיאנטים באלגוריתם ירידת הגרדיאנט
 
