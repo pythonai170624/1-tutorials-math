@@ -155,10 +155,10 @@ db = (2/n) * np.sum(errors)
 
 3. `errors = predictions - y` - מחשב את וקטור השגיאות, כלומר את ההפרש בין התחזיות לערכים האמיתיים. זה מחשב את $e_i = \hat{y}_i - y_i$ לכל נקודה.
 
-4. `dm = (2/n) * np.sum(errors * X)` - מחשב את הנגזרת החלקית של MSE ביחס ל-m <br/>
+4. `dm = (2/n) * np.sum(errors * X)` - נחשב את הנגזרת החלקית של MSE ביחס ל-m <br/>
    <img src="formula4.jpg"/>
 
-6. `db = (2/n) * np.sum(errors)` - מחשב את הנגזרת החלקית של MSE ביחס ל-b  <br/>
+6. `db = (2/n) * np.sum(errors)` - נחשב את הנגזרת החלקית של MSE ביחס ל-b  <br/>
    <img src="formula5.jpg"/>
 
 ## תפקיד הגרדיאנטים באלגוריתם ירידת הגרדיאנט
